@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <script src="../js/vue.js"></script>
+  <body>
+    <div id="app" v-cloak>
+      {{message}}
+    </div>
+  </body>
+  <script>
+    setTimeout(function () {
+      new Vue({
+        data() {
+          return {
+            message: '你好',
+          };
+        },
+      }).$mount('#app');
+    }, 1000);
+  </script>
+</html>

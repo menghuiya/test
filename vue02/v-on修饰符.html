@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="./vue.js"></script>
+  <body>
+    <div id="app">
+      <!-- .prevernt/修饰符 -->
+      <form action="baidu">
+        <input type="submit" value="添加" @click.prevent="submitClick" />
+      </form>
+      <!-- 键盘监听  -->
+      <input type="text" @keyup.enter="keyUp" />
+    </div>
+  </body>
+  <script>
+    new Vue({
+      data() {
+        return {
+          message: 'nihao',
+        };
+      },
+      methods: {
+        submitClick() {
+          console.log('aaaaaa');
+        },
+        keyUp() {
+          console.log('bbbbbb');
+        },
+      },
+    }).$mount('#app');
+  </script>
+</html>

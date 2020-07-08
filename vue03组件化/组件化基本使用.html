@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="./vue.js"></script>
+  <body>
+    <div id="app">
+      <my-cpn></my-cpn>
+      <my-cpn></my-cpn>
+      <cpn1></cpn1>
+    </div>
+  </body>
+  <script>
+    //创建组件构造器
+    const cpnC = Vue.extend({
+      template: `
+      <div>
+        <h2>我是标题</h2>
+        <p>我是内容一行</p>
+        <p>我是内容二行</p>
+      </div>`,
+    });
+    Vue.component('my-cpn', cpnC);
+    new Vue({
+      data() {
+        return {};
+      },
+      components: {
+        cpn1: cpnC,
+      },
+    }).$mount('#app');
+  </script>
+</html>

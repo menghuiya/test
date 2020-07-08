@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="../js/vue.js"></script>
+  <body>
+    <div id="app">
+      <h2>{{message}}</h2>
+      <h2>{{message}},梦回</h2>
+      <h2>{{firstname+lastname}}</h2>
+      <h2>{{counter*2}}</h2>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      data() {
+        return {
+          message: '你好啊',
+          firstname: 'meng',
+          lastname: 'hui',
+          counter: 100,
+        };
+      },
+    }).$mount('#app');
+  </script>
+</html>

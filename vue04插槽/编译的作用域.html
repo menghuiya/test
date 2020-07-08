@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="./vue.js"></script>
+  <body>
+    <div id="app">
+      <cpn v-show="isShow"></cpn>
+      <cpn>
+        <!-- 目的是获取子组件中的pLanguages -->
+        <template slot-scope="slot">
+          <!-- <span v-for="item in slot.data">{{item}}-</span> -->
+          <span>{{slot.data.join(' - ')}}</span>
+        </template>
+      </cpn>
+      <cpn>
+        <!-- 目的是获取子组件中的pLanguages -->
+        <template slot-scope="slot">
+          <span v-for="item in slot.data">{{item}} * </span>
+        </template>
+      </cpn>
+    </div>
+    <template id="cpn">
+      <div>
+        <h2>(｡･∀･)ﾉﾞ嗨</h2>
+        <slot :data="Planguages">
+          <ul>
+            <li v-for="item in Planguages">{{item}}</li>
+          </ul>
+        </slot>
+      </div>
+    </template>
+  </body>
+  <script>
+    new Vue({
+      data() {
+        return {
+          message: '你好啊',
+          isShow: true,
+        };
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              isShow: false,
+              Planguages: ['JavaScript', 'Python', 'Java', 'PHP', 'c++'],
+            };
+          },
+        },
+      },
+    }).$mount('#app');
+  </script>
+</html>
+<!-- 父组件替换插槽的标签,但是内容有子组件来提供 -->

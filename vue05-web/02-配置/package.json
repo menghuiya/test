@@ -1,0 +1,15 @@
+{
+  "name": "menghui",
+  "version": "1.0.0",
+  "description": "梦回的webpack",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "menghui",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.6.0"
+  }
+}

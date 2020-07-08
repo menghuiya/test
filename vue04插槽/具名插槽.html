@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="./vue.js"></script>
+  <body>
+    <div id="app">
+      <cpn>
+        <span slot="main">标题</span>
+        <span slot="left">返回</span>
+        <span slot="right">菜单</span>
+      </cpn>
+    </div>
+    <template id="cpn">
+      <div>
+        <slot name="left"><span>left</span></slot>
+        <slot name="main"><span>main</span></slot>
+        <slot name="right"><span>right</span></slot>
+      </div>
+    </template>
+  </body>
+  <script>
+    new Vue({
+      data() {
+        return {
+          message: '你好啊',
+        };
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+        },
+      },
+    }).$mount('#app');
+  </script>
+</html>
+<!-- 插槽的基本使用
+        插槽的默认值 直接在slot里面设置
+        插槽传入时所有元素都会被插入 -->

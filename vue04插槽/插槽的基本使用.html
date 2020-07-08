@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="./vue.js"></script>
+  <body>
+    <div id="app">
+      <cpn></cpn>
+      <cpn><span>hhhh</span></cpn>
+      <cpn><button>按钮1</button></cpn>
+      <cpn>
+        <p>梦回</p>
+        <i>哈哈哈</i>
+      </cpn>
+    </div>
+    <template id="cpn">
+      <div>
+        <h2>(｡･∀･)ﾉﾞ嗨</h2>
+        <!-- 插槽的基本使用
+        插槽的默认值 直接在slot里面设置
+        插槽传入时所有元素都会被插入 -->
+        <slot><button>默认按钮</button></slot>
+      </div>
+    </template>
+  </body>
+  <script>
+    new Vue({
+      data() {
+        return {
+          message: '你好啊',
+        };
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+        },
+      },
+    }).$mount('#app');
+  </script>
+</html>

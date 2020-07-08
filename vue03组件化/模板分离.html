@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="./vue.js"></script>
+  <body>
+    <div id="app">
+      <cpn></cpn>
+      <cpn></cpn>
+      <cpn></cpn>
+    </div>
+    <!-- 1 -->
+    <!-- <script type="text/x-template" id="cpnc1">
+      <div>
+        <h2>我是标题</h2>
+        <p>哈哈哈哈哈哈哈哈哈</p>
+      </div>
+    </script> -->
+    <template id="cpnc1">
+      <div>
+        <h2>当前计数:{{counter}}</h2>
+        <button @click="increment">-</button>
+        <button @click="decrement">+</button>
+      </div>
+    </template>
+  </body>
+  <script>
+    Vue.component('cpn', {
+      template: '#cpnc1',
+      data() {
+        return {
+          counter: 0,
+        };
+      },
+      methods: {
+        decrement() {
+          this.counter++;
+        },
+        increment() {
+          this.counter--;
+        },
+      },
+    });
+    new Vue({
+      data() {
+        return {
+          title: '我是标题',
+        };
+      },
+    }).$mount('#app');
+  </script>
+</html>

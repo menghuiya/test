@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="./vue.js"></script>
+  <body>
+    <div id="app">
+      <h2 v-html="url">{{url}}</h2>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      data() {
+        return {
+          message: 'Nihaoa',
+          url: '<a href="https://www.52mhzy.cn/">梦回资源网</a>',
+        };
+      },
+    }).$mount('#app');
+  </script>
+</html>

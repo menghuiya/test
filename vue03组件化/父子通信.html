@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="./vue.js"></script>
+  <body>
+    <div id="app">
+      <cpn
+        :cmovies="moves"
+        :cmessage="message"
+        :number="num"
+        @numchange="numChange"
+      ></cpn>
+      <span>父元素的data:</span> {{num}}
+    </div>
+    <template id="cnp">
+      <div>
+        <h2>(｡･∀･)ﾉﾞ嗨 {{cmessage}}</h2>
+        <hr />
+        <h3>props的数组</h3>
+        <ul>
+          <li v-for="item in cmovies">{{item}}</li>
+        </ul>
+        <hr />
+        <h3>data的数值</h3>
+        <p>{{dnumber}}</p>
+        <input type="text" :value="dnumber" @input="numInput" />
+        <hr />
+        <input
+          type="text"
+          placeholder="请输入一个电影名称"
+          @keyup.enter="moveInput"
+        />
+      </div>
+    </template>
+  </body>
+  <script>
+    //父传子 props
+    const cpn = {
+      template: '#cnp',
+      // props: ['cmovies', 'cmessage'],
+      props: {
+        // cmovies: Array, //规定数据类型
+        // cmessage: String,
+        //提供默认值 以及必须传值
+        cmovies: {
+          type: Array,
+          default: ['和平精英', '王者荣耀', '穿越火线'],
+          required: true,
+        },
+        cmessage: {
+          type: String,
+          default: 'hhhhhhhh',
+        },
+        number: Number,
+      },
+      data() {
+        return {
+          dnumber: this.number,
+        };
+      },
+      methods: {
+        numInput(event) {
+          this.dnumber = event.target.value;
+          this.$emit('numchange', Number(this.dnumber));
+        },
+        moveInput(event) {
+          this.cmovies.push(event.target.value);
+        },
+      },
+    };
+    let app = new Vue({
+      data() {
+        return {
+          message: '你好吧',
+          moves: ['海王', '海贼王', '海尔兄弟'],
+          num: 1,
+        };
+      },
+      components: {
+        cpn,
+      },
+      methods: {
+        numChange(value) {
+          this.num = value;
+        },
+      },
+    }).$mount('#app');
+  </script>
+</html>

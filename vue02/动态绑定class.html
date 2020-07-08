@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+      .color {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2 class="title" :class="[active,line]">{{message}}</h2>
+      <h2 class="title" :class="getClasses()">{{message}}</h2>
+      <ul>
+        <li
+          :class="{color:count==index}"
+          v-for="(item,index) in movies"
+          @click="changeClass(index)"
+        >
+          {{item}}
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      data() {
+        return {
+          message: '你好',
+          active: 'aaaa',
+          line: 'bbbb',
+          movies: ['穿越火线', '和平精英', '王者荣耀', '英雄联盟'],
+          color: true,
+          count: 0,
+        };
+      },
+      methods: {
+        getClasses() {
+          return [this.active, this.line];
+        },
+        changeClass(index) {
+          this.count = index;
+        },
+      },
+    }).$mount('#app');
+  </script>
+</html>

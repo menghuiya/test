@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .mh {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .mh div {
+        /* display: inline; */
+        /* flex-basis: auto; */
+        /* flex-grow: inherit; */
+        flex: 1;
+        background-color: lavender;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        text-align: center;
+        white-space: nowrap;
+      }
+      .parent {
+        /* width: 100%;
+        height: 150px; */
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+      }
+
+      .parent div {
+        box-sizing: border-box;
+        background-color: white;
+        padding: 1%;
+        flex: 0 0 33%;
+        /* height: 50px; */
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="mh">
+      <div>北京市</div>
+      <div>天津市</div>
+      <div>石家庄市</div>
+      <div>唐山市</div>
+      <div>秦皇岛市</div>
+      <div>邯郸市</div>
+      <div>邢台市</div>
+      <div>张家口市</div>
+      <div>保定市</div>
+      <div>石家庄市</div>
+      <div>唐山市</div>
+      <div>秦皇岛市</div>
+      <div>邯郸市</div>
+      <div>邢台市</div>
+      <div>张家口市</div>
+      <div>保定市</div>
+      <div>保定市</div>
+    </div> -->
+    <div class="parent">
+      <div>北京市</div>
+      <div>天津市</div>
+      <div>石家庄市</div>
+      <div>唐山市</div>
+      <div>秦皇岛市</div>
+      <div>邯郸市</div>
+      <div>邢台市</div>
+      <div>张家口市</div>
+      <div>保定市</div>
+      <div>石家庄市</div>
+      <div>唐山市</div>
+      <div>秦皇岛市</div>
+      <div>邯郸市</div>
+      <div>邢台市</div>
+      <div>张家口市</div>
+      <div>保定市</div>
+      <div>保定市</div>
+    </div>
+  </body>
+</html>
